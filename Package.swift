@@ -37,6 +37,9 @@ let package = Package(
                 .product(name: "DeploymentTargetIoT", package: "ApodiniIoTDeploymentProvider"),
                 .product(name: "DeploymentTargetIoTCommon", package: "ApodiniIoTDeploymentProvider")
             ]
+        ),
+        .testTarget(
+            name: "BuoyDeploymentProviderTests"
         )
     ]
 )
