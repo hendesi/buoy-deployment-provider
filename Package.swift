@@ -9,12 +9,12 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "ConductivityDeploymentOption",
-            targets: ["ConductivityDeploymentOption"]
+            name: "BuoyDeploymentOption",
+            targets: ["BuoyDeploymentOption"]
         ),
         .executable(
-            name: "ConductivityDeploymentTarget",
-            targets: ["ConductivityDeploymentTarget"]
+            name: "BuoyDeploymentTarget",
+            targets: ["BuoyDeploymentTarget"]
         )
     ],
     dependencies: [
@@ -24,16 +24,16 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "ConductivityDeploymentOption",
+            name: "BuoyDeploymentOption",
             dependencies: [
                 .product(name: "ApodiniDeployBuildSupport", package: "Apodini"),
                 .product(name: "DeploymentTargetIoTCommon", package: "ApodiniIoTDeploymentProvider")
             ]
         ),
         .executableTarget(
-            name: "ConductivityDeploymentTarget",
+            name: "BuoyDeploymentTarget",
             dependencies: [
-                .target(name: "ConductivityDeploymentOption"),
+                .target(name: "BuoyDeploymentOption"),
                 .product(name: "DeploymentTargetIoT", package: "ApodiniIoTDeploymentProvider"),
                 .product(name: "DeploymentTargetIoTCommon", package: "ApodiniIoTDeploymentProvider")
             ]

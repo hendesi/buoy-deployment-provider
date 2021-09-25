@@ -4,12 +4,12 @@ import DeploymentTargetIoT
 import DeviceDiscovery
 import Foundation
 
-struct ConductivityDeployCommand: ParsableCommand {
+struct BuoyDeployCommand: ParsableCommand {
     static var configuration: CommandConfiguration {
         CommandConfiguration(
             commandName: "deploy",
-            abstract: "Conductivity Deployment Provider",
-            discussion: "Runs the Conductivity deployment provider",
+            abstract: "Buoy Deployment Provider",
+            discussion: "Runs the Buoy deployment provider",
             version: "0.0.1"
         )
     }
