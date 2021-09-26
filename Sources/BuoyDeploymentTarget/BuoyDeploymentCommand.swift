@@ -24,12 +24,12 @@ struct BuoyDeployCommand: ParsableCommand {
     func run() throws {
         let provider = IoTDeploymentProvider(
             searchableTypes: deploymentOptions.types.split(separator: ",").map(String.init),
-            productName: deploymentOptions.productName,
+            productName: "Buoy",
             packageRootDir: deploymentOptions.inputPackageDir,
-            deploymentDir: deploymentOptions.deploymentDir,
-            automaticRedeployment: deploymentOptions.automaticRedeploy,
+            deploymentDir: "/deployment",
+            automaticRedeployment: false,
             webServiceArguments: webServiceArguments,
-            input: .dockerImage("hendesi/master-thesis:latest-arm64") // docker compose
+            input: .dockerImage("ghcr.io/fa21-collaborative-drone-interactions/buoywebservice:latest-arm64") // docker compose
         )
         registerSensorPostDiscovery(provider, device: .temperature, sensorType: 0, actionName: "temperature")
         registerSensorPostDiscovery(provider, device: .conductivity, sensorType: 1, actionName: "conductivity")
