@@ -17,19 +17,25 @@ struct BuoyDeployCommand: ParsableCommand {
     
     @Argument(parsing: .unconditionalRemaining, help: "CLI arguments of the web service")
     var webServiceArguments: [String] = []
-    
-    @OptionGroup
-    var deploymentOptions: IoTDeploymentOptions
+
+    @Option
+    var types: String = "_workstation._tcp."
+
+    @Option
+    var deploymentDir: String = "/usr/deployment"
+
+    @Option
+    var dockerComposePath: String
     
     func run() throws {
         let provider = IoTDeploymentProvider(
-            searchableTypes: deploymentOptions.types.split(separator: ",").map(String.init),
+            searchableTypes: types.split(separator: ",").map(String.init),
             productName: "Buoy",
-            packageRootDir: deploymentOptions.inputPackageDir,
+            packageRootDir: "",
             deploymentDir: "/deployment",
             automaticRedeployment: false,
             webServiceArguments: webServiceArguments,
-            input: .dockerImage("ghcr.io/fa21-collaborative-drone-interactions/buoywebservice:latest-arm64") // docker compose
+            input: .dockerCompose(fileURL: URL(fileURLWithPath: dockerComposePath), serviceName: "buoy-web-service", containerName: "buoy-web-service")
         )
         registerSensorPostDiscovery(provider, device: .temperature, sensorType: 0, actionName: "temperature")
         registerSensorPostDiscovery(provider, device: .conductivity, sensorType: 1, actionName: "conductivity")
@@ -44,11 +50,11 @@ struct BuoyDeployCommand: ParsableCommand {
                         DockerDiscoveryAction(
                             identifier: ActionIdentifier(actionName),
                             imageName: "ghcr.io/fa21-collaborative-drone-interactions/buoypostdiscovery:latest",
-                            fileUrl: URL(fileURLWithPath: deploymentOptions.deploymentDir).appendingPathComponent(actionName),
+                            fileUrl: URL(fileURLWithPath: deploymentDir).appendingPathComponent(actionName),
                             options: [
                                 .command("\(sensorType) \(actionName)"),
                                 .volume(hostDir: "/buoy", containerDir: "/buoy"),
-                                .volume(hostDir: deploymentOptions.deploymentDir, containerDir: "/result")
+                                .volume(hostDir: deploymentDir, containerDir: "/result")
                             ]
                         )
                     ),

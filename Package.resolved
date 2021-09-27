@@ -24,7 +24,7 @@
         "repositoryURL": "https://github.com/Lerbert/ApodiniIoTDeploymentProvider",
         "state": {
           "branch": "Expose-DeploymentTargetIoTCommon",
-          "revision": "26d21f5109aa6d65362e737438d46a6407f56689",
+          "revision": "b9b0d0f0d82a45681e031418d2fee7f186d7b6f6",
           "version": null
         }
       },
@@ -132,8 +132,8 @@
         "repositoryURL": "https://github.com/vapor/jwt-kit.git",
         "state": {
           "branch": null,
-          "revision": "7a9a04df93e71de10fa2e8d6e9430dd0a7924643",
-          "version": "4.2.4"
+          "revision": "846998c28d5c024137b61b8d788e2e7d21b16d08",
+          "version": "4.2.5"
         }
       },
       {
