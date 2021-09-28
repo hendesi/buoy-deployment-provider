@@ -54,7 +54,8 @@ struct BuoyDeployCommand: ParsableCommand {
                             options: [
                                 .command("\(sensorType) \(actionName)"),
                                 .volume(hostDir: "/buoy", containerDir: "/buoy"),
-                                .volume(hostDir: deploymentDir, containerDir: "/result")
+                                .volume(hostDir: deploymentDir, containerDir: "/result"),
+                                .credentials(username: "", password: "") // docker image is public
                             ]
                         )
                     ),
