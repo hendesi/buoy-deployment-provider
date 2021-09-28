@@ -23,8 +23,8 @@
         "package": "ApodiniIoTDeploymentProvider",
         "repositoryURL": "https://github.com/Lerbert/ApodiniIoTDeploymentProvider",
         "state": {
-          "branch": "Expose-DeploymentTargetIoTCommon",
-          "revision": "b9b0d0f0d82a45681e031418d2fee7f186d7b6f6",
+          "branch": "docker-compose",
+          "revision": "f66e756ed6106e91ba2553172874c11ab4e6c383",
           "version": null
         }
       },
