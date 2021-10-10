@@ -35,7 +35,9 @@ let package = Package(
             dependencies: [
                 .target(name: "BuoyDeploymentOption"),
                 .product(name: "DeploymentTargetIoT", package: "ApodiniIoTDeploymentProvider"),
-                .product(name: "DeploymentTargetIoTCommon", package: "ApodiniIoTDeploymentProvider")
+                .product(name: "DeploymentTargetIoTCommon", package: "ApodiniIoTDeploymentProvider"),
+                .product(name: "ApodiniDeployBuildSupport", package: "Apodini"),
+                .product(name: "ApodiniUtils", package: "Apodini")
             ]
         ),
         .testTarget(

@@ -35,7 +35,7 @@ struct BuoyDeployCommand: ParsableCommand {
             deploymentDir: "/deployment",
             automaticRedeployment: false,
             webServiceArguments: webServiceArguments,
-            input: .dockerCompose(fileURL: URL(fileURLWithPath: dockerComposePath), serviceName: "buoy-web-service", containerName: "buoy-web-service")
+            input: .dockerCompose(URL(fileURLWithPath: dockerComposePath))
         )
         registerSensorPostDiscovery(provider, device: .temperature, sensorType: 0, actionName: "temperature")
         registerSensorPostDiscovery(provider, device: .conductivity, sensorType: 1, actionName: "conductivity")
