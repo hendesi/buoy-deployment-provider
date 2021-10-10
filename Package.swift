@@ -20,7 +20,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Apodini/Apodini.git", .upToNextMinor(from: "0.5.0")),
         .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMinor(from: "0.4.0")),
-        .package(name: "ApodiniIoTDeploymentProvider", url: "https://github.com/Lerbert/ApodiniIoTDeploymentProvider", .branch("docker-compose"))
+        .package(url: "https://github.com/Apodini/ApodiniIoTDeploymentProvider", .branch("develop")),
     ],
     targets: [
         .target(
