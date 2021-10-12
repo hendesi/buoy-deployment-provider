@@ -25,10 +25,12 @@ struct BuoyDeployCommand: ParsableCommand {
     var deploymentDir: String = "/usr/deployment"
 
     @Option
-    var dockerComposePath: String = "/Users/felice/Documents/buoy-web-service/docker-compose.yml"
+    var dockerComposePath: String
+//    var dockerComposePath: String = "/Users/felice/Documents/buoy-web-service/docker-compose.yml"
     
     @Option
-    var configFile: String = "/Users/felice/Documents/buoy-deployment-provider/config.json"
+    var configFile: String
+//    var configFile: String = "/Users/felice/Documents/buoy-deployment-provider/config.json"
     
     func run() throws {
         let provider = IoTDeploymentProvider(
