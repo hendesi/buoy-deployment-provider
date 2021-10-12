@@ -25,7 +25,10 @@ struct BuoyDeployCommand: ParsableCommand {
     var deploymentDir: String = "/usr/deployment"
 
     @Option
-    var dockerComposePath: String
+    var dockerComposePath: String = "/Users/felice/Documents/buoy-web-service/docker-compose.yml"
+    
+    @Option
+    var configFile: String = "/Users/felice/Documents/buoy-deployment-provider/config.json"
     
     func run() throws {
         let provider = IoTDeploymentProvider(
@@ -35,7 +38,9 @@ struct BuoyDeployCommand: ParsableCommand {
             deploymentDir: "/deployment",
             automaticRedeployment: false,
             webServiceArguments: webServiceArguments,
-            input: .dockerCompose(URL(fileURLWithPath: dockerComposePath))
+            input: .dockerCompose(URL(fileURLWithPath: dockerComposePath)),
+            port: 80,
+            configurationFile: URL(fileURLWithPath: configFile)
         )
         registerSensorPostDiscovery(provider, device: .temperature, sensorType: 0, actionName: "temperature")
         registerSensorPostDiscovery(provider, device: .conductivity, sensorType: 1, actionName: "conductivity")

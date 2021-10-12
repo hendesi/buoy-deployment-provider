@@ -24,7 +24,7 @@
         "repositoryURL": "https://github.com/Apodini/ApodiniIoTDeploymentProvider",
         "state": {
           "branch": "develop",
-          "revision": "67e8a48ca78aff2a74d67be19054703339113405",
+          "revision": "95afc0736c9ae392e2248487907a0626737edfda",
           "version": null
         }
       },
@@ -105,8 +105,8 @@
         "repositoryURL": "https://github.com/vapor/fluent-kit.git",
         "state": {
           "branch": null,
-          "revision": "176f2b4b7c35a89dd756a5d6d8d5a8473bf92410",
-          "version": "1.15.2"
+          "revision": "06a6939ff486cb6abae08b2e025b02291cff0da0",
+          "version": "1.15.3"
         }
       },
       {
@@ -132,8 +132,8 @@
         "repositoryURL": "https://github.com/vapor/jwt-kit.git",
         "state": {
           "branch": null,
-          "revision": "846998c28d5c024137b61b8d788e2e7d21b16d08",
-          "version": "4.2.5"
+          "revision": "ca2edf69a613f3d89354114f56cfd9921d2727d5",
+          "version": "4.2.6"
         }
       },
       {
@@ -150,8 +150,8 @@
         "repositoryURL": "https://github.com/vapor/multipart-kit.git",
         "state": {
           "branch": null,
-          "revision": "30f53439b52587b016a5e5b3dce7f50f686681be",
-          "version": "4.4.0"
+          "revision": "82f255699b1de9ba1f34dfc6b99e99aba5a1f8eb",
+          "version": "4.5.0"
         }
       },
       {
@@ -420,7 +420,7 @@
         "repositoryURL": "https://github.com/Apodini/SwiftDeviceDiscovery.git",
         "state": {
           "branch": "master",
-          "revision": "c23647eca77d8ce77ec9430bd7de64684ee1bea1",
+          "revision": "e75871e478ca844d8a960fa875dba22b7dbea695",
           "version": null
         }
       },
@@ -429,8 +429,8 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "f9f68e5f417ef1de56222a80079a72605fbfde8d",
-          "version": "4.48.8"
+          "revision": "27119271502bf266be293be5325f0fb72435e8fd",
+          "version": "4.49.2"
         }
       },
       {
