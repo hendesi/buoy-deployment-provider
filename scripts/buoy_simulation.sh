@@ -11,9 +11,11 @@ function reset() {
     done
 }
 
-ssh ${addresses[0]} 'echo "[0,2]" >| /buoy/available_sensors.json'
-ssh ${addresses[1]} 'echo "[0,1]" >| /buoy/available_sensors.json'
-ssh ${addresses[2]} 'echo "[2]" >| /buoy/available_sensors.json'
+
+
+ssh ubuntu@${ipAddresses[0]} 'echo "[0,2]" >| /buoy/available_sensors.json'
+ssh ubuntu@${ipAddresses[1]} 'echo "[0,1]" >| /buoy/available_sensors.json'
+ssh ubuntu@${ipAddresses[2]} 'echo "[2]" >| /buoy/available_sensors.json'
 
 echo "Testing normal deployment. Downloading images only on first run"
 reset
