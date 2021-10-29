@@ -22,27 +22,32 @@ struct BuoyDeployCommand: ParsableCommand {
     var types: String = "_workstation._tcp."
 
     @Option
-    var deploymentDir: String = "/usr/deployment"
+    var deploymentDir: String = "/deployment"
 
     @Option
-    var dockerComposePath: String
-//    var dockerComposePath: String = "/Users/felice/Documents/buoy-web-service/docker-compose.yml"
+    var dockerComposePath: String = "/Users/felice/Documents/buoy-web-service/docker-compose.yml"
     
     @Option
-    var configFile: String
-//    var configFile: String = "/Users/felice/Documents/buoy-deployment-provider/config.json"
+    var configFile: String = "/Users/felice/Documents/buoy-deployment-provider/config.json"
+    
+    @Option(help: "The interval stating how frequent the provider tries to redeploy")
+    public var redeploymentInterval: Int = 30
+    
+    @Flag(help: "If set, the deployment provider listens for changes in the working directory and automatically redeploys them."
+    )
+    public var automaticRedeploy = false
     
     func run() throws {
         let provider = IoTDeploymentProvider(
-            searchableTypes: types.split(separator: ",").map(String.init),
-            productName: "Buoy",
-            packageRootDir: "",
-            deploymentDir: "/deployment",
-            automaticRedeployment: false,
+            searchableTypes: types.split(separator: ",").map { DeviceIdentifier(String($0)) },
+            deploymentDir: deploymentDir,
+            automaticRedeployment: automaticRedeploy,
             webServiceArguments: webServiceArguments,
             input: .dockerCompose(URL(fileURLWithPath: dockerComposePath)),
             port: 80,
-            configurationFile: URL(fileURLWithPath: configFile)
+            configurationFile: URL(fileURLWithPath: configFile),
+            dumpLog: true,
+            redeploymentInterval: redeploymentInterval
         )
         registerSensorPostDiscovery(provider, device: .temperature, sensorType: 0, actionName: "temperature")
         registerSensorPostDiscovery(provider, device: .conductivity, sensorType: 1, actionName: "conductivity")
