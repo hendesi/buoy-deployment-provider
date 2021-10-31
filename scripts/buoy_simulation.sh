@@ -12,6 +12,12 @@ function reset() {
     done
 }
 
+function stop() {
+    echo "Stopping running instances"
+    for ipAddress in "${ipAddresses[@]}"; do
+        ssh ubuntu@$ipAddress "docker stop ApodiniIoTDockerInstance"
+    done
+}
 
 
 ssh ubuntu@${ipAddresses[0]} 'echo "[0,2]" >| /buoy/available_sensors.json'
@@ -45,7 +51,6 @@ function evaluate() {
     call ${ipAddresses[2]} 2 true
 }
 
-sleep 120
 echo "Testing normal deployment. Downloading images only on first run"
 
 for ((i=1;i<=10;i++)); do
@@ -54,10 +59,11 @@ for ((i=1;i<=10;i++)); do
     evaluate
 done
 
-sleep 120
+sleep 300
 echo "Testing without docker reset. Assuming needed images are already downloaded"
 
 for ((i=1;i<=10;i++)); do
+    stop
     ./$EXEC_PATH
     evaluate
 done
