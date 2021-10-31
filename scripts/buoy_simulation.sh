@@ -62,9 +62,9 @@ for ((i=1;i<=10;i++)); do
     evaluate
 done
 
-    if [ "$errorOccurred" = false ]; then
-        echo "${GREEN}\xE2\x9C\x94 Run was successful!${DEFAULT}"
-    else
-        echo "${RED}Run failed!${DEFAULT}"
-    fi
+if [ "$errorOccurred" = false ]; then
+    echo "${GREEN}\xE2\x9C\x94 Run was successful!${DEFAULT}"
+else
+    echo "${RED}Run failed!${DEFAULT}"
+fi
 
